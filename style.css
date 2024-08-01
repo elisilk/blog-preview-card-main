@@ -1,0 +1,249 @@
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500, 800;
+  src: url(assets/fonts/Figtree-VariableFont_wght.ttf) format("truetype");
+}
+
+:root {
+  --ff-sans: "Figtree", sans-serif;
+
+  --fw-normal: 500;
+  --fw-bold: 800;
+
+  --fs-200: 0.75rem; /* 12px */
+  --fs-300: 0.875rem; /* 14px */
+  --fs-400: 1rem; /* 16px */
+  --fs-600: 1.25rem; /* 20px */
+  --fs-700: 1.5rem; /* 24px */
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-500: hsl(0, 0%, 42%);
+  --clr-neutral-900: hsl(0, 0%, 7%);
+
+  --clr-yellow: hsl(47, 88%, 63%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  background-color: var(--clr-yellow);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  min-width: 270px;
+  max-width: 384px;
+  border-radius: 20px;
+  border: 1px solid var(--clr-neutral-900);
+  box-shadow: var(--clr-neutral-900) 0.5rem 0.5rem;
+  margin: 1.5rem;
+  padding: 1.5rem;
+
+  color: var(--clr-neutral-500);
+  background-color: var(--clr-neutral-100);
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-normal);
+  font-size: clamp(0.875rem, 0.625rem + 1vw, 1rem);
+  line-height: 1.5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 
+
+Preset 1 - 24px bold
+Preset 2 - 16px 
+Preset 3 - 14px
+Preset 3b - 14px bold
+
+Mobile
+Category - 12px bold 
+Date - 12px
+Title - 20px bold
+Desc - 14px
+Author - 14px bold (Preset 3b)
+
+Desktop
+Category - 14px bold (Preset 3b)
+Date - 14px (Preset 3)
+Title - 24px bold (Preset 1)
+Desc - 16px (Preset 2)
+Author - 14px bold (Preset 3b)
+
+
+Font size fluid typography
+
+min screen size = 375
+max screen size = 1440
+
+min font size = 14px (0.875rem)
+max font size = 16px (1rem)
+
+clamp(0.875rem, 0.75rem + 1.5vw, 1rem); 
+
+clamp(0.875rem, 0.675rem + 1vw, 1rem); 
+.675rem = 10.8px
+reaches min at - 320px -- 10.8px + 3.2px = 14px 
+reaches max at - 520px -- 10.8px + 5.2px = 16px
+
+clamp(0.875rem, 0.64rem + 1vw, 1rem); 
+.64rem = 10.25px
+reaches min at - 375px -- 10.25px + 3.75px = 14px 
+reaches max at - 575px -- 10.25px + 5.75px = 16px 
+
+-- ** desired clamp btwn 14px - 16px ** ---
+clamp(0.875rem, 0.625rem + 1vw, 1rem); 
+.625rem = 10px
+reaches min at - 400px -- 10px + 4px = 14px 
+reaches max at - 600px -- 10px + 6px = 16px 
+
+-- ** desired clamp btwn 12px - 14px ** ---
+clamp(0.75rem, 0.5rem + 1vw, 0.875rem); 
+.5rem = 8px
+reaches min at - 400px -- 8px + 4px = 12px 
+reaches max at - 600px -- 8px + 6px = 14px 
+
+-- ** desired clamp btwn 20px - 24px ** ---
+clamp(1.25rem, 1rem + 1vw, 1.5rem); 
+1rem = 16px
+reaches min at - 400px -- 16px + 4px = 20px 
+reaches max at - 800px -- 16px + 8px = 24px 
+
+320px -- 1vw = 3.2px = 0.2rem
+375px -- 1vw = 3.75px = 0.234rem
+1440px -- 1vw = 14.40px = 0.9rem
+
+calc(14px + (16 - 14) * (100vw - 375px) / (1440 - 375))
+
+*/
+
+.card__title {
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  letter-spacing: -0.5px;
+}
+
+.card__title a,
+.card__title a:visited {
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+
+.card__title a:hover,
+.card__title a:active,
+.card__title a:focus {
+  color: var(--clr-yellow);
+}
+
+.card__img {
+  order: -1;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card__categories {
+  order: -2;
+}
+
+.card__category {
+  display: inline-block;
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-yellow);
+  border-radius: 4px;
+  font-weight: var(--fw-bold);
+  font-size: clamp(0.75rem, 0.5rem + 1vw, 0.875rem);
+  padding: 0.25rem 0.75rem;
+}
+
+.card__date {
+  order: -1;
+  color: var(--clr-neutral-900);
+  font-size: clamp(0.75rem, 0.5rem + 1vw, 0.875rem);
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-300);
+}
+
+.card__author-avatar {
+  width: 2rem;
+  height: auto;
+}
+
+/* Attribution: 
+HTML5 Boilerplate - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css */
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
