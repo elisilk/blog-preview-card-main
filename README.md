@@ -25,8 +25,6 @@ Users should be able to:
 
 ### Screenshot
 
-### Screenshot
-
 |  Mobile designed at 375px:   |  Desktop designed at 1440px:  |
 | :--------------------------: | :---------------------------: |
 | ![](./screenshot-mobile.png) | ![](./screenshot-desktop.png) |
@@ -48,6 +46,8 @@ Users should be able to:
 ### What I learned
 
 Working on this.
+
+I took on the challenge of: "The font sizes in this project are slightly smaller in the mobile layout. Find a way to reduce font size for smaller screens without using media queries." So I will share my solution to that and the thinking that went into it.
 
 ### Continued development
 
